@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_011208) do
+ActiveRecord::Schema.define(version: 2021_08_02_021124) do
 
   create_table "continents", force: :cascade do |t|
     t.string "name"
@@ -19,4 +19,15 @@ ActiveRecord::Schema.define(version: 2021_08_02_011208) do
     t.index ["name"], name: "index_continents_on_name", unique: true
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.integer "habitants"
+    t.integer "superficie"
+    t.integer "continent_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["continent_id"], name: "index_countries_on_continent_id"
+  end
+
+  add_foreign_key "countries", "continents"
 end
