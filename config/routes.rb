@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sights
   resources :countries
   #No vamos a usar las rutas de Continentes
   #resources :continents
